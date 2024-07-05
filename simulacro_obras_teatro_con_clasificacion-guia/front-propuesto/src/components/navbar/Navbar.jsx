@@ -4,14 +4,14 @@ export const Navbar = () => {
   return (
     <nav className="bg-success navbar navbar-expand-lg sticky-top container-fluid">
       <div className="container-fluid">
-        <Link to={'/obras-teatrales'}>
+        <Link to={'/proveedores'}>
           <div className="navbar-brand text-light">
-            <i className="bi bi-bicycle logo-in-nav"> Obras Teatrales</i>
+            <i className="bi bi-bicycle logo-in-nav"> Proveedores</i>
           </div>
         </Link>
-        <Link to={'/obras-teatrales/crear'}>
+        <Link to={'/proveedores/crear'}>
           <div className="navbar-brand text-light">
-            <i className="bi bi-bicycle logo-in-nav"> Crear Obra Teatral</i>
+            <i className="bi bi-bicycle logo-in-nav"> Crear Proveedor</i>
           </div>
         </Link>
       </div>

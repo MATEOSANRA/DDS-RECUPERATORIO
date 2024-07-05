@@ -1,0 +1,8 @@
+hacer npx create-react-app nombre-proyecto
+despues hacer cd a la carpeta del oroyecto y hacer nom start para correr el servidor
+
+si consultamos a ia hacerlo pidiendo componentes funcionales.
+
+se puede instalar la alternativa vite
+
+http://localhost:5173/

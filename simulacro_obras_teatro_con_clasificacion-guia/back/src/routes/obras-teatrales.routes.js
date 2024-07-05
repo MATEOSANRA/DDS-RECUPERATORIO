@@ -20,7 +20,7 @@ router.put("/:id", async (req, res, next)=>{
     try {
         req.body.id = req.params.id
         const obra = await obrasTetralesService
-        .editarObrasTeatral(req.body)
+        .editarObraTeatral(req.body)
         return res.json(obra);
     }catch(err){
         next(err)

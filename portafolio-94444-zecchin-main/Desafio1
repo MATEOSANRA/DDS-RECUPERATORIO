@@ -1,0 +1,53 @@
+// Importar la librería seedrandom
+const seedrandom = require('seedrandom');
+
+// Seteando el valor de la semilla
+const seed = 1763519;
+const rng = seedrandom(seed)
+
+// Generando los contadores y el array para los numeros a guardar.
+let Positivos = 0
+let Negativos = 0
+let diviblespor7 = 0
+let arrayContadores = new Array(10).fill(0);
+let anteriorNumero = null;
+let mismoSigno = 0;
+let sumaSeisDigitos = 0;
+let SeisDigitos = 0;
+let minNum = null;
+let minPos = -1;
+
+for (let i = 0; i < 1000000; i++) {
+    let num = rng.int32();
+    let digitos = Math.floor(Math.log10(Math.abs(num))) + 1;
+    if (num > 0) {
+        Positivos++;
+    } if (num < 0) {
+        Negativos++; }
+    if (num % 7 == 0 || num % 7 === 3 || num % 7 === 5 || num % 7 === 6)  {
+        diviblespor7++; }
+    let anteultimoDigito = Math.floor(Math.abs(num) % 100 / 10);; // Obtener el anteúltimo dígito del número
+    arrayContadores[anteultimoDigito]++;
+    if (anteriorNumero != null && Math.sign(num) === Math.sign(anteriorNumero)) {
+        mismoSigno++;
+    }   
+    if (digitos === 6) { 
+        sumaSeisDigitos += num;
+        SeisDigitos++;
+    }
+    if (minNum === null || num < minNum) {
+        minNum = num;
+        minPos = i + 1;
+    }
+    
+    anteriorNumero = num;
+}
+
+// Imprimiendo los resultados
+console.log("Valor y posición del menor de todos: ", minNum, minPos);
+console.log("Positivos: ", Positivos);
+console.log("Negativos: ", Negativos);
+console.log("Contadores de los digitos: ", arrayContadores);
+console.log("Punto Divisibles por 7: ", diviblespor7);
+console.log("Numeros con mismo signo: ", mismoSigno);
+console.log("Promedio de numeros de 6 digitos: ", sumaSeisDigitos / SeisDigitos);
